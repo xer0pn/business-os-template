@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────
+   Design tokens — light mode defaults
+───────────────────────────────────────────────── */
+:root {
+  /* Brand colors */
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-secondary: #0ea5e9;
+  --color-accent: #f59e0b;
+
+  /* Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-raised: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-muted: #94a3b8;
+
+  /* Text on colored backgrounds */
+  --color-on-primary: #ffffff;
+  --color-on-surface: #0f172a;
+
+  /* Typography */
+  --font-heading: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Layout */
+  --radius: 8px;
+  --max-width: 1200px;
+}
+
+/* ─────────────────────────────────────────────────
+   Dark mode overrides
+───────────────────────────────────────────────── */
+.dark {
+  --color-primary: #818cf8;
+  --color-primary-hover: #6366f1;
+  --color-secondary: #38bdf8;
+  --color-accent: #fbbf24;
+
+  --color-surface: #0f172a;
+  --color-surface-raised: #1e293b;
+  --color-border: #334155;
+  --color-muted: #64748b;
+
+  --color-on-primary: #0f172a;
+  --color-on-surface: #f1f5f9;
+}
+
+/* ─────────────────────────────────────────────────
+   Base resets
+───────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-body);
+    @apply antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    @apply font-semibold tracking-tight;
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   Utility classes
+───────────────────────────────────────────────── */
+@layer utilities {
+  .container-page {
+    max-width: var(--max-width);
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-secondary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
